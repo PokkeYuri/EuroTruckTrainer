@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Title="EuroTruck Trainer" Height="220" Width="450"
         Background="#FF2D2D30"
-        ResizeMode="NoResize">
+        ResizeMode="NoResize"
+        Closing="Window_Closing">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -16,10 +17,6 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Row="1" Grid.Column="1">
-            <TextBlock x:Name="txtVersion" Foreground="White" FontSize="8" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="2" MouseLeftButtonDown="txtVersion_MouseLeftButtonDown"/>
-        </Grid>
-        
         <StackPanel Grid.Column="0" HorizontalAlignment="Center" Margin="10">
             <Button x:Name="btnMinus100" Content="-100" Click="Decrease100_Click" Style="{StaticResource AccentButtonStyle}"/>
             <Button x:Name="btnMinus1_000" Content="-1.000" Click="Decrease1000_Click" Style="{StaticResource AccentButtonStyle}"/>
@@ -40,6 +37,9 @@
             <Button x:Name="btnPlus100_000" Content="+100.000" Click="Increase100000_Click" Style="{StaticResource AccentButtonStyle}"/>
         </StackPanel>
 
+        <Grid Grid.Row="1" Grid.Column="1">
+            <TextBlock x:Name="txtVersion" Foreground="White" FontSize="8" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="2"/>
+        </Grid>
         
     </Grid>
 </Window>

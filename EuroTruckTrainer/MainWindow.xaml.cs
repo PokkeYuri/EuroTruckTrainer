@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Globalization;
+using System.Diagnostics;
 
 namespace EuroTruckTrainer
 {
@@ -56,7 +57,7 @@ namespace EuroTruckTrainer
             }
             catch
             {
-                MessageBox.Show(this, "Game not found. Please start the game and try again.", "Error");
+                MessageBox.Show(this, "Game not found. Please start the game and try again.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             StartUpdateProcessAsync().ConfigureAwait(false);
         }
@@ -95,13 +96,13 @@ namespace EuroTruckTrainer
             string errormsg = "Error on updating Value. Programm is closing!";
             if (ex != null) errormsg += "\n\n" + ex.Message;
 
-            MessageBox.Show(this, errormsg, "Error");
+            MessageBox.Show(this, errormsg, "Error",MessageBoxButton.OK, MessageBoxImage.Error);
             Environment.Exit(0);
         }
 
         private void btnNegBalance_Click(object sender, RoutedEventArgs e)
         {
-            var ok = MessageBox.Show(this, "This feature is available only when your balance is negative, setting it to -1€. To use this tool normally again, you can secure an in-game loan to return your balance to positive.\n\nDo you wish to proceed?", "EuroTruck Trainer",MessageBoxButton.OKCancel);
+            var ok = MessageBox.Show(this, "This feature is available only when your balance is negative, setting it to -1€. To use this tool normally again, you can secure an in-game loan to return your balance to positive.\n\nDo you wish to proceed?", "EuroTruck Trainer",MessageBoxButton.OKCancel, MessageBoxImage.Warning);
             if (ok == MessageBoxResult.OK)
             {
                 try
@@ -141,9 +142,9 @@ namespace EuroTruckTrainer
         private void Decrease10000_Click(object sender, RoutedEventArgs e) => Number -= 10000;
         private void Decrease100000_Click(object sender, RoutedEventArgs e) => Number -= 100000;
 
-        private void txtVersion_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-
+            MessageBox.Show(this, "Visit \n\nhttps://github.com/PokkeYuri/EuroTruckTrainer \n\nfor updates and Informations!", "EuroTruck Trainer",MessageBoxButton.OK,MessageBoxImage.Information);
         }
     }
 }
