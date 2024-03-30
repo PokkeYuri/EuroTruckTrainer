@@ -21,7 +21,7 @@ This version of EuroTruckTrainer was developed for Euro Truck Simulator 2 versio
   </a>
 </p>
 
-- You cant set you balance less than 1€
+- You cannot set your balance to less than 1€.
 - If your balance is negative, use the 'Fix Negative Balance' button to set it to -1€ and then take a bank loan in the game.
 
 ## Disclaimer
